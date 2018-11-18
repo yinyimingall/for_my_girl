@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Popover from 'vue-js-popover'
 
-Vue.use(Popover)
+Vue.prototype.$eventBus = new Vue()
 window.onload = function () {
     new Vue({
         router,

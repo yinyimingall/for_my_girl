@@ -3,7 +3,7 @@
         <div class="img-box">
             <img class="avatar" :src="imgUrl" alt="null">
         </div>
-        <bubble-dialog :message="message" :direction="direction"></bubble-dialog>
+        <bubble-dialog :message="message" :direction="direction" :payload="payload"></bubble-dialog>
     </div>
 </template>
 <script>

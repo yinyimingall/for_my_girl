@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="dialog" :class="dialogClass">
-            <p>{{message}}</p>
+            <p @click.self="onBubbleClick($event)" :class="{'link-style': linkStyle}">{{message}}</p>
         </div>
     </div>
 </template>
@@ -11,12 +11,27 @@ export default {
     name: 'bubble-dialog',
     props: {
         direction: String, // left right 
-        message: String
+        message: String,
+        payload: Object
     },
-    data(){
+    data() {
         return {
             dialogClass: {
                 [this.direction]: true
+            },
+            linkStyle: false
+
+        }
+    },
+    mounted() {
+        if (this.payload && this.payload.url) {
+            this.linkStyle = true
+        }
+    },
+    methods: {
+        onBubbleClick() {
+            if (this.payload) {
+                this.$eventBus.$emit('bubble-clicked', this.payload)
             }
         }
     }
@@ -27,17 +42,17 @@ export default {
 pink = #a131f8
 purple = #6c27c2
 .dialog
-    word-break: break-all
+    word-break break-all
     min-height 46px
     font-size 16px
-    background: #fff;
-    box-shadow: 0 4px 20px 0 rgba(52,73,94,.2);
-    padding: 10px;
-    border-radius: 20px;
-    z-index: 998;
+    background #fff
+    box-shadow 0 4px 20px 0 rgba(52, 73, 94, 0.2)
+    padding 10px
+    border-radius 20px
+    z-index 998
     position relative
     transform scale(0)
-    transition transform .3s cubic-bezier(0.25, 0.1, 0, 0.99)
+    transition transform 0.3s cubic-bezier(0.25, 0.1, 0, 0.99)
     &.left
         color #33465d
         background-color #eef6f8
@@ -56,19 +71,17 @@ purple = #6c27c2
         position absolute
         width 0
         height 0
-    // &.left:before, &.right:before
-    //     border-top: 10px solid transparent;
-    //     border-bottom:  10px solid transparent;
-    //     bottom 13px
-    // &.right:before
-    //     border-left 10px solid #fff
-    //     right -10px
-    //     filter: drop-shadow(2px 0 2px rgba(52,73,94,.1))
-    // &.left:before
-    //     border-right: 10px solid #fff
-    //     left: -10px
-    //     filter: drop-shadow(-2px 0 2px rgba(52,73,94,.1))
 .bubble-item.show .dialog
     transform scale(1)
+.link-style
+    // text-decoration underline
+    animation playcolor 1s ease-in-out infinite
+    @keyframes playcolor
+        0%
+            color #aa0ddb
+        33%
+            color #dd70ff
+        100%
+            color #aa0ddb
 </style>
 

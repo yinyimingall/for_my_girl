@@ -1,11 +1,12 @@
 import Dialog from './main.js'
 
-export function say(flag, msg){
+export function say(flag, msg, payload){
     let dialog = new Dialog({
         message: msg,
         direction: flag===0?'left':'right',
         img: flag===0?'me':'her',
-        el: '#main-chat'
+        el: '#main-chat',
+        payload: payload
     })
     // let h = document.documentElement.clientHeight || document.body.clientHeight;
     let h = document.body.clientHeight;
