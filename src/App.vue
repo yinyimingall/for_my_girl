@@ -13,7 +13,7 @@ export default {
     name: 'home',
     data() {
         return {
-            musicUrl: 'http://dl.stream.qqmusic.qq.com/C100001J5QJL1pRQYB.m4a?vkey=91A134958047EC04A21B8BFB7E9107BACB69E05A534FE40D340F735D128ADD558310154230F4BC6CE6710F441F0CB82636782DE73A72ABD4&fromtag=66',
+            musicUrl: './Ed Sheeran - Thinking Out Loud.mp3',
 
         }
     },
