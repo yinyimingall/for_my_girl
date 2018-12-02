@@ -19,7 +19,6 @@
 import { say, iSay, sheSay } from '../../components/bubbleDialog/index.js'
 import { dialogs } from './dialogContent.js'
 import { questions } from './questionContent.js'
-import { clearTimeout } from 'timers';
 export default {
     name: 'chat',
     data() {

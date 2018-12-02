@@ -12,6 +12,16 @@ export const questions = [
                 content: '我喜欢你，就像辽阔的海洋一样多。',
                 who: 0,
                 delay: 2000
+            },
+            {
+                content: '我喜欢你，不因为什么。',
+                who: 0,
+                delay: 2000
+            },
+            {
+                content: '只因为你是♥付祖贤。',
+                who: 0,
+                delay: 2000
             }
         ]
     },
@@ -36,7 +46,7 @@ export const questions = [
                 delay: 1000
             },
             {
-                content: '点我查看惊喜',
+                content: '点我查收你的惊喜',
                 who: 0,
                 delay: 0,
                 payload: {

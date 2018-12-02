@@ -25,49 +25,6 @@
 <script>
 import { getMusicState, setMusicState } from '../../store.js'
 import Headset from '../../components/headset'
-import { setTimeout } from 'timers';
-const captureTouch = function (element) {
-    var touch = { x: null, y: null, isPressed: false, event: null },
-        body_scrollLeft = document.body.scrollLeft,
-        element_scrollLeft = document.documentElement.scrollLeft,
-        body_scrollTop = document.body.scrollTop,
-        element_scrollTop = document.documentElement.scrollTop,
-        offsetLeft = element.offsetLeft,
-        offsetTop = element.offsetTop;
-
-    element.addEventListener('touchstart', function (event) {
-        touch.isPressed = true;
-        touch.event = event;
-    }, false);
-
-    element.addEventListener('touchend', function (event) {
-        touch.isPressed = false;
-        touch.x = null;
-        touch.y = null;
-        touch.event = event;
-    }, false);
-
-    element.addEventListener('touchmove', function (event) {
-        var x, y,
-            touch_event = event.touches[0]; //first touch
-
-        if (touch_event.pageX || touch_event.pageY) {
-            x = touch_event.pageX;
-            y = touch_event.pageY;
-        } else {
-            x = touch_event.clientX + body_scrollLeft + element_scrollLeft;
-            y = touch_event.clientY + body_scrollTop + element_scrollTop;
-        }
-        x -= offsetLeft;
-        y -= offsetTop;
-
-        touch.x = x;
-        touch.y = y;
-        touch.event = event;
-    }, false);
-
-    return touch;
-};
 
 
 function animateHeart() {
@@ -154,13 +111,6 @@ function animateHeart() {
             ctx.fillStyle = item.color;
             item.draw(ctx)
         }
-
-        // let mouse = captureTouch(c)
-        // if (mouse.x && mouse.y) {
-        //     list.push(new heartShape(mouse.x, mouse.y))
-        // }
-
-
     }
     draw()
 }
@@ -206,6 +156,10 @@ export default {
 
 <style lang="stylus" scoped>
 main
+    position absolute
+    top 13rem
+    left 0
+    right 0
     z-index 200
 canvas#heart-canvas
     margin 0px
@@ -232,11 +186,11 @@ header
     right 0
     z-index -1
 .dialog
-    position absolute
-    left 0
-    right 0
+    // position absolute
+    // left 0
+    // right 0
     z-index 200
-    margin-top 90%
+    // margin-top 90%
 .open-btn
     width 140px
     height 46px
@@ -254,12 +208,12 @@ header
     // background linear-gradient(120deg, #cc208e, #640cd2)
 .music
     text-align center
-    padding-top 50%
-    margin-bottom 10px
+    // padding-top 50%
+    margin-bottom 30px
     z-index 200
-    position absolute
-    left 0
-    right 0
+    // position absolute
+    // left 0
+    // right 0
 .headset-box
     display inline-flex
     z-index 200

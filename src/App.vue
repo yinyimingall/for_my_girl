@@ -13,7 +13,7 @@ export default {
     name: 'home',
     data() {
         return {
-            musicUrl: './Ed Sheeran - Thinking Out Loud.mp3',
+            musicUrl: './ThinkingOutLoud.mp3',
 
         }
     },
@@ -47,4 +47,10 @@ export default {
     transition opacity 0.5s
 .fade-enter, .fade-leave-to
     opacity 0
+@font-face
+    font-family Vanity-LightItalic
+    src url('./Vanity-LightItalic.ttf')
+@font-face
+    font-family STHeiti-Light
+    src url('./STHeiti-Light.ttf')
 </style>
